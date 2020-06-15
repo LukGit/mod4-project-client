@@ -12,7 +12,7 @@ class Notes extends Component {
       
       <div>
         <Navbar icon="paint brush" title="FlatNote" description="out app" />
-        {this.props.notes.map(note => <NoteCard note={note}/>)}
+        {this.props.notes.map(note => <NoteCard note={note} key={note.id}/>)}
       </div>
     )
   }
@@ -20,7 +20,7 @@ class Notes extends Component {
 
 const mapStateToProps = state => {
   console.log(state)
-  return { notes: state.users.notes }
+  return { notes: state.notes }
 }
 
 export default connect(mapStateToProps)(Notes)

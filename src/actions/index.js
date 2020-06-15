@@ -4,3 +4,9 @@ export const addUser = userData => {
     userData
   };
 };
+export const addNote = note => {
+  return {
+    type: 'ADD_NOTE',
+    note
+  }
+}

@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import {Link} from 'react-router-dom'
 
 
-const ShowNote = () => {
+const ShowNote = (props) => {
+  console.log(props)
   const note = 
   <div>
   <div className="note-line">
