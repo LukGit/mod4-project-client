@@ -10,3 +10,9 @@ export const addNote = note => {
     note
   }
 }
+export const updateNote = note => {
+  return {
+    type: 'UPDATE_NOTE',
+    note
+  }
+}

@@ -27,6 +27,17 @@ function notesReducer(state = [], action) {
       console.log(action)
       const newNotes = state.concat(action.note)
       return newNotes
+    case 'UPDATE_NOTE':
+      const index = state.findIndex(note => note.id === action.note.id)
+      console.log("found array index", action, index)
+      const updatedNote = action.note
+      return [
+        ...state.slice(0, index),
+        updatedNote,
+        ...state.slice(index + 1)
+      ]
+      // const newNotes = state.concat(action.note)
+      // return newNotes
     default:
       return state
   }

@@ -6,6 +6,7 @@ import Login from './components/Login'
 import Notes from './components/Notes'
 import ShowNote from './components/ShowNote'
 import NoteForm from './components/NoteForm'
+import NoteEdit from './components/NoteEdit'
 import { Route, Switch } from 'react-router-dom'
 
 
@@ -16,6 +17,7 @@ const App = () => {
       <BrowserRouter>
       <Switch>
         <Route path={'/login'} component={Login} />
+        <Route path={'/notes/edit/:id'} component={NoteEdit} />
         <Route path={'/notes/new'} component={NoteForm} />
         <Route path={'/notes/:id'} component={ShowNote} />
         <Route path={'/notes'} component={Notes} />
