@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from './Navbar';
 import { connect } from 'react-redux';
 import { updateNote } from '../actions';
+import { Form, Grid } from 'semantic-ui-react'
 
 
 class NoteEdit extends Component {
@@ -54,44 +55,41 @@ class NoteEdit extends Component {
   render() {
     return (
       <div>
-        <Navbar icon="paint brush" title="FlatNote" description="out app" />
-        <form onSubmit={this.handleOnSubmit}>
-        <div className="form-group">
-            <label htmlFor="title" className="col-md-4 control-label">Title</label>
-              <div className="col-md-5">
+        <Navbar/>
+        <Grid>
+          <Grid.Row centered>
+          <Form onSubmit={this.handleOnSubmit} style={{width: 800}}>
+            <Form.Field>
+              <label>Title</label>
                 <input
-                  className="form-control"
                   type="text"
                   name="title"
                   value={this.state.title}
                   onChange={this.handleOnChange}
                 />
-            </div>
-            <div className="form-group">
-              <label htmlFor="content" className="col-md-4 control-label">Content</label>
-              <div className="col-md-5">
+            </Form.Field>
+            <Form.Field>
+              <label>Content</label>
                 <textarea
                   className="form-control"
                   name="content"
                   value={this.state.content}
                   onChange={this.handleOnChange}
                 />
-              </div>
-            </div>
-            <div className="form-group">
-              <div className="col-md-6 col-md-offset-4">
-                <button type="submit" className="btn btn-default">Submit</button>
-              </div>
-            </div>
-          </div>
-        </form>
+            </Form.Field>
+            <Form.Button>
+              Submit
+            </Form.Button>
+        </Form>
+          </Grid.Row>
+        </Grid>
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state)
+  console.log("Edit notes state", state)
   return { 
     userId: state.users.userId,
     notes: state.notes 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addUser } from '../actions'
+import { Form } from 'semantic-ui-react'
 
 
 class Login extends Component {
@@ -39,10 +40,17 @@ class Login extends Component {
   render() {
     return (
       <div className={`app`}>
-       <form onSubmit={this.loginUser}>
-        <input onChange={this.handleChange} type='text' value={this.state.username} />
-        <input type='submit' />
-       </form>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+       <Form onSubmit={this.loginUser}>
+        <Form.Group widths='equal' inline>
+          <Form.Input label="User name" onChange={this.handleChange} type='text' value={this.state.username} />
+          <Form.Input type='submit' value='Login'/>
+        </Form.Group>
+
+       </Form>
       </div>
     )
   }

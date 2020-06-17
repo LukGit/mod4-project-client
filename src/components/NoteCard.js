@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import { Segment, Grid, Button } from 'semantic-ui-react'
 
 
 
@@ -10,15 +11,35 @@ class NoteCard extends Component {
     const link = `/notes/${note.id}`
     const linkedit = `/notes/edit/${note.id}`
     return (
-      <div className="note-line">
-        <div>
-        <p>{note.title}</p>
-        <Link to={link} className='item'>View</Link> 
-        <Link to={linkedit} className='item'>Edit</Link> 
-        </div>
-        <div>
-        <p>{note.content}</p>
-        </div>
+      <div>
+       <Grid>
+         <Grid.Row centered>
+        <Segment style={{width: 800}}>
+          <Segment raised >
+          {note.title}
+          </Segment>
+        
+          <Segment>  
+          {note.content.slice(0, 30) + "..."}
+          </Segment>
+
+          
+          <Link to={link}>
+            <Button size='mini'>
+              <p>View</p>
+            </Button>
+          </Link> 
+          <Link to={linkedit}>
+            <Button size='mini'>
+              <p>Edit</p>
+            </Button>
+          </Link> 
+          
+      
+          
+          </Segment>
+          </Grid.Row>
+          </Grid>
       </div>
     
     )
