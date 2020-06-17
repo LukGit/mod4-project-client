@@ -14,16 +14,13 @@ class NoteCard extends Component {
       <div>
        <Grid>
          <Grid.Row centered>
-        <Segment style={{width: 800}}>
-          <Segment raised >
-          {note.title}
-          </Segment>
-        
+          <Segment style={{width: 800}}>
+            <Segment raised >
+              {note.title}
+          </Segment>   
           <Segment>  
-          {note.content.slice(0, 30) + "..."}
+            {note.content.slice(0, 30) + "..."}
           </Segment>
-
-          
           <Link to={link}>
             <Button size='mini'>
               <p>View</p>
@@ -34,9 +31,6 @@ class NoteCard extends Component {
               <p>Edit</p>
             </Button>
           </Link> 
-          
-      
-          
           </Segment>
           </Grid.Row>
           </Grid>

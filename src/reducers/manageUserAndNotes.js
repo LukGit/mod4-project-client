@@ -10,13 +10,11 @@ export default rootReducer;
 function usersReducer(state = { user: '', userId: 0 }, action) {
   switch (action.type) {
     case "LOGIN":
-      console.log(action)
       return {
         user: action.userData.name,
         userId: action.userData.id
       }
     case "LOGOUT":
-      console.log("logout user", action)
       return {
         user: '',
         userId: 0
@@ -30,12 +28,10 @@ function notesReducer(state = [], action) {
     case "LOGIN":
       return [...action.userData.notes]
     case 'ADD_NOTE':
-      console.log(action)
       const newNotes = state.concat(action.note)
       return newNotes
     case 'UPDATE_NOTE':
       const index = state.findIndex(note => note.id === action.note.id)
-      console.log("found array index", action, index)
       const updatedNote = action.note
       return [
         ...state.slice(0, index),
@@ -44,7 +40,6 @@ function notesReducer(state = [], action) {
       ]
     case 'DELETE_NOTE':
     const indexD = state.findIndex(note => note.id === action.note.id)
-    console.log("found array index", action, indexD)
     return [
       ...state.slice(0, indexD),
       ...state.slice(indexD + 1)
@@ -52,8 +47,6 @@ function notesReducer(state = [], action) {
     case "LOGOUT":
       return []
     case "SORT_NOTES":
-      console.log("reducer sort notes by", action)
-      console.log("state of notes is", state)
       let sorted = []
       if (action.sortBy === 'added'){ 
         sorted = state.sort((a,b) => {
@@ -80,7 +73,6 @@ function notesReducer(state = [], action) {
           return 0;
         })
       }
-      console.log("sorted", sorted)
       return sorted
     default:
       return state

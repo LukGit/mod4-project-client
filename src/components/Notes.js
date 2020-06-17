@@ -9,13 +9,15 @@ class Notes extends Component {
   state = {}
 
   handleChange = (e, { value }) => {
-    console.log("radio clicked", this.props.notes, value)
     this.setState({ value })
     this.props.sortNotes(value)
   }
 
   render() {
-  
+    if (!this.props.user.user){
+      this.props.history.push('/login')
+      return null
+    }
     return (
       
       <div>
@@ -44,8 +46,10 @@ class Notes extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
-  return { notes: state.notes }
+  return { 
+    notes: state.notes,
+    user: state.users
+   }
 }
 
 export default connect(mapStateToProps, {sortNotes})(Notes)

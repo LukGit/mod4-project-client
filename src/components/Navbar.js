@@ -12,12 +12,10 @@ class Navbar extends Component {
   // }
 
   handleLogout = event => {
-    console.log("handling logout", this.props)
     this.props.logoutUser()
   }
 
   render() {
-    console.log("Navbar history",this.props.history)
     return (
       <Menu inverted size='mini'>
         <Menu.Item>
@@ -41,7 +39,6 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("Navbar state", state)
   return {}
 }
 // export default connect(mapStateToProps, { logoutUser } )(Navbar);

@@ -12,13 +12,16 @@ class NoteEdit extends Component {
   }
 
   componentDidMount () {
-    console.log(this.props)
-    const noteSelect = this.props.notes.find(note => note.id === parseInt(this.props.match.params.id))
-    console.log(noteSelect)
-    this.setState({
-      title: noteSelect.title,
-      content: noteSelect.content
-    })
+    if (!this.props.userId){
+      this.props.history.push('/login')
+      return null
+    } else {
+      const noteSelect = this.props.notes.find(note => note.id === parseInt(this.props.match.params.id))
+      this.setState({
+        title: noteSelect.title,
+        content: noteSelect.content
+      })
+    }
   }
   
 
@@ -46,7 +49,6 @@ class NoteEdit extends Component {
     fetch(NOTE_URL, reqObj)
     .then(resp => resp.json())
     .then(userData => {
-      console.log(this.props, userData)
       this.props.updateNote(userData)
       this.props.history.push('/notes')
     })
@@ -80,7 +82,7 @@ class NoteEdit extends Component {
             <Form.Button>
               Submit
             </Form.Button>
-        </Form>
+          </Form>
           </Grid.Row>
         </Grid>
       </div>
@@ -89,7 +91,6 @@ class NoteEdit extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("Edit notes state", state)
   return { 
     userId: state.users.userId,
     notes: state.notes 

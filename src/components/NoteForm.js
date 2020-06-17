@@ -35,13 +35,16 @@ class NoteForm extends Component {
     fetch(NOTE_URL, reqObj)
     .then(resp => resp.json())
     .then(userData => {
-      console.log(this.props)
       this.props.addNote(userData)
       this.props.history.push('/notes')
     })
   }
 
   render() {
+    if (!this.props.userId){
+      this.props.history.push('/login')
+      return null
+    }
     return (
       <div>
         <Navbar/>
@@ -80,7 +83,6 @@ class NoteForm extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return { userId: state.users.userId }
 }
 

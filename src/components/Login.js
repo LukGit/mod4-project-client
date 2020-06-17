@@ -31,7 +31,6 @@ class Login extends Component {
     fetch(USER_URL, reqObj)
     .then(resp => resp.json())
     .then(userData => {
-      console.log(userData)
       this.props.addUser(userData)
       this.props.history.push('/notes')
     })
