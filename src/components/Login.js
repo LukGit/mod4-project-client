@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addUser } from '../actions'
-import { Form } from 'semantic-ui-react'
+import { Form, Icon, Label, Container } from 'semantic-ui-react'
 
 
 class Login extends Component {

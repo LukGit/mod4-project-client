@@ -7,9 +7,6 @@ import { Menu } from 'semantic-ui-react'
 
 
 class Navbar extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
 
   handleLogout = event => {
     this.props.logoutUser()
@@ -41,5 +38,4 @@ class Navbar extends Component {
 const mapStateToProps = state => {
   return {}
 }
-// export default connect(mapStateToProps, { logoutUser } )(Navbar);
 export default connect(mapStateToProps, { logoutUser } )(withRouter(Navbar))
