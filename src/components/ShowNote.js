@@ -46,9 +46,9 @@ class ShowNote extends Component {
     const NOTE_URL = `http://localhost:3000/notes/${note.id}`
     fetch(NOTE_URL, {method: 'delete'})
       .then(resp => resp.json())
-      .then(data => {
+      .then(delNote => {
         this.props.history.push('/notes')
-        this.props.deleteNote(data)
+        this.props.deleteNote(delNote)
       })
   }
 

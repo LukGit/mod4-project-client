@@ -8,7 +8,7 @@ import { Menu } from 'semantic-ui-react'
 
 class Navbar extends Component {
 
-  handleLogout = event => {
+  handleLogout = e => {
     this.props.logoutUser()
   }
 

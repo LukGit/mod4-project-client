@@ -5,11 +5,14 @@ import { Form, Icon, Label, Container } from 'semantic-ui-react'
 
 
 class Login extends Component {
-  constructor() {
-    super()
-    this.state = {
-      username: ''
-    }
+  // constructor() {
+  //   super()
+  //   this.state = {
+  //     username: ''
+  //   }
+  // }
+  state = {
+    username: ''
   }
 
   handleChange = (e) => {

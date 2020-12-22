@@ -28,14 +28,15 @@ function notesReducer(state = [], action) {
     case "LOGIN":
       return [...action.userData.notes]
     case 'ADD_NOTE':
-      const newNotes = state.concat(action.note)
-      return newNotes
+      // const newNotes = state.concat(action.note)
+      // return newNotes
+      return state.concat(action.note)
     case 'UPDATE_NOTE':
       const index = state.findIndex(note => note.id === action.note.id)
-      const updatedNote = action.note
+      // const updatedNote = action.note
       return [
         ...state.slice(0, index),
-        updatedNote,
+        action.note,
         ...state.slice(index + 1)
       ]
     case 'DELETE_NOTE':
