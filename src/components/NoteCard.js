@@ -19,7 +19,7 @@ class NoteCard extends Component {
               {note.title}
           </Segment>   
           <Segment>  
-            {note.content.slice(0, 30) + "..."}
+            {note.content.slice(0, 50) + "..."}
           </Segment>
           <Link to={link}>
             <Button size='mini'>

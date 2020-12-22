@@ -60,10 +60,22 @@ function notesReducer(state = [], action) {
           }
           return 0;
         })
-      } else {
+      } else if (action.sortBy === 'changed') {
         sorted = state.sort((a,b) => {
           let noteA = a.updated_at
           let noteB = b.updated_at
+          if (noteA > noteB) {
+            return -1;
+          }
+          if (noteA < noteB) {
+            return 1;
+          }
+          return 0;
+        })
+      } else {
+        sorted = state.sort((a,b) => {
+          let noteA = a.title
+          let noteB = b.title
           if (noteA > noteB) {
             return -1;
           }

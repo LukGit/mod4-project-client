@@ -22,7 +22,7 @@ class Notes extends Component {
       
       <div>
         <Navbar/>
-        <Segment>Order by
+        <Segment>Order Notes By
         <Radio
             label='Date Added'
             name='radioGroup'
@@ -30,11 +30,18 @@ class Notes extends Component {
             checked={this.state.value === 'added'}
             onChange={this.handleChange}
           /> 
-          <Radio
+        <Radio
             label='Date Changed'
             name='radioGroup'
             value='changed'
             checked={this.state.value === 'changed'}
+            onChange={this.handleChange}
+          />  
+        <Radio
+            label='Title'
+            name='radioGroup'
+            value='title'
+            checked={this.state.value === 'title'}
             onChange={this.handleChange}
           />  
         </Segment> 

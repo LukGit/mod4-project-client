@@ -11,7 +11,7 @@ class NoteForm extends Component {
     content: ''
   }
 
-  handleOnChange = event => {
+  handleChange = event => {
     const { value, name } = event.target;
     this.setState({
       [name]: value
@@ -53,22 +53,22 @@ class NoteForm extends Component {
         <Form onSubmit={this.handleOnSubmit} style={{width: 800}}>
         
             <Form.Field>
-              <label>Title</label>
+              <label>Note Title</label>
               <input
                 placeholder="title"
                 name="title"
                 value={this.state.title}
-                onChange={this.handleOnChange}
+                onChange={this.handleChange}
               />
             </Form.Field>
             <Form.Field>
-              <label>Content</label>              
+              <label>Note Content</label>              
               <textarea
-                placeholder='Your notes...'
+                placeholder='Your notes here...'
                 style={{ minHeight: 100 }}
                 name="content"
                 value={this.state.content}
-                onChange={this.handleOnChange}
+                onChange={this.handleChange}
               />
             </Form.Field>
             <Form.Button>

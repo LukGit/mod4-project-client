@@ -14,10 +14,10 @@ class Navbar extends Component {
 
   render() {
     return (
-      <Menu inverted size='mini'>
+      <Menu inverted color="grey" size='mini'>
         <Menu.Item>
           <Link to={'/notes'} className="item">
-            FlatNote
+            My Notes
           </Link>
         </Menu.Item>
         <Menu.Item >
